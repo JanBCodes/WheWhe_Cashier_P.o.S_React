@@ -1,0 +1,142 @@
+*
+{
+  max-width: 1440px;
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body
+{
+  font-family: 'Lobster', cursive;
+  margin: 20px 20px;
+  background-image: url(../img/bingo.jpg);
+  background-size: cover;
+  color: whitesmoke;
+  font-size: 2rem;
+}
+
+h1
+{
+  text-align: center;
+  color: WHITE;
+  text-shadow: 4px 4px #FF0000;
+}
+
+h2
+{
+  text-align: center;
+  color: WHITE;
+  text-shadow: 4px 4px purple;
+  margin: 10px;
+}
+
+main
+{
+  display: grid;
+  grid-template-columns: .5fr 3fr .5fr;
+  text-shadow: 2px 2px #300808;
+}
+
+
+.betContainer
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-shadow: 2px 2px #300808;
+  justify-content: center;
+}
+
+.cashAndClearButtonsContainer
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  text-shadow: 2px 2px #300808;
+}
+
+.cashButton, .clearButton
+{
+  text-align: center;
+  border-radius: 25%;
+  border: solid white 2px;
+  margin: 15px;
+  background-color: green;
+
+}
+
+.clearButton
+{
+  background-color: white;
+  border: solid green 2px;
+  color: black;
+
+}
+
+.numbersContainer
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 5px;
+  text-shadow: 2px 2px #300808;
+}
+
+.betDiv
+{
+  font-size: 4rem;
+  border-radius: 50%;
+  border: solid blue 4px;
+  margin: 5px;
+  padding: 15px;
+  background-color: black;
+ }
+
+.bet
+{
+  font-size: 4rem;
+  border-radius: 50%;
+  border: solid greenyellow 10px;
+  margin: 5px;
+  padding: 15px;
+  text-align: center;
+}
+
+.numberDiv
+{
+  text-align: center;
+  border-radius: 10px;
+  border: solid green 5px;
+  text-shadow: 2px 2px #300808;
+  margin: 5px;
+  padding: 15px;
+}
+
+.marksContainer
+{
+  display: grid;
+  text-shadow: 4px 4px #300808;
+  margin: 5px;
+}
+
+.marksChosen
+{
+  text-align: center;
+  margin: 5px;
+  padding: 2px;
+}
+
+.marksChosenHeader
+{
+  border-radius: 10px;
+  border: solid yellow 5px;
+  text-align: center;
+  margin: 5px;
+  padding: 2px;
+}
+
+.footer
+{
+  display: grid;
+  grid-template-columns: 1fr;
+  text-shadow: 2px 2px #300808;
+}
