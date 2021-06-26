@@ -3,9 +3,9 @@ const Footer = () => {
         <div className="footer">
             <div className="footerNotes"> 
                 Developed by: JanBCodes          
-                    <a href="https://github.com/JanBCodes" target="_blank">
+                    {/* <a href="https://github.com/JanBCodes" target="_blank"> */}
                         <i className="fab fa-github"> </i>
-                    </a>
+                    {/* </a> */}
             </div>
         </div>
     )
