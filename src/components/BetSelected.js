@@ -5,7 +5,7 @@ const BetSelected = () => {
     return (
         <div className="betContainer ">
             {arrayofNumbers.map((numb) => (
-                <div className="betDiv" key={numb}> 
+                <div className="betDiv animate__animated animate__zoomIn"  key={numb}> 
                     <div className="bet" > 
                         {numb}
                     </div>
@@ -15,6 +15,6 @@ const BetSelected = () => {
     )
 }
 
-export default BetSelected
+export default BetSelected;
 
 // animate__animated animate__rollIn

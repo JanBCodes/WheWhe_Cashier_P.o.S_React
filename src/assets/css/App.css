@@ -128,7 +128,7 @@ main
 .marksChosenHeader
 {
   border-radius: 10px;
-  border: solid yellow 5px;
+  border: solid none 5px;
   text-align: center;
   margin: 5px;
   padding: 2px;

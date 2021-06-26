@@ -1,11 +1,43 @@
-import React from 'react'
-import Header from './Header.js'
-import Numbers from './Numbers.js'
-import MarksSelected from './MarksSelected.js'
-import BetSelected from './BetSelected.js'
-import Footer from './Footer.js'
+import React,{useState} from 'react'
 
 import {} from "../assets/css/App.css"
+
+import NumbersContext from '../context/NumbersContext.js'
+
+import HomePage from '../pages/HomePage';
+import CashierPage from '../pages/CashierPage';
+import ReceiptPage from '../pages/ReceiptPage';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+const App = () => {
+
+  const [numbersSelected, setNumbersSelected] = useState([]);
+
+  return (
+    <Router>
+      <Switch>
+        <NumbersContext.Provider value={{numbersSelected, setNumbersSelected}}>
+        <Route exact path="/">
+          <HomePage/>
+        </Route>
+        <Route path="cash">
+          <CashierPage/>
+        </Route>
+        <Route path="/receipt">
+          <ReceiptPage/>
+        </Route>
+        </NumbersContext.Provider>    
+      </Switch>
+    </Router>
+  )
+}
+
+export default App;
 
 /* 
 
@@ -28,22 +60,5 @@ import {} from "../assets/css/App.css"
 3. Modal Pops Up with Cashier Page.
 
 */
-
-const App = () => {
-
-  return (
-    <>
-      <Header/>
-      <main>
-        <BetSelected/>
-        <Numbers/>
-        <MarksSelected/>
-      </main>
-      <Footer/>
-    </>
-  )
-}
-
-export default App
 
 
