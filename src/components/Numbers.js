@@ -5,7 +5,7 @@ import NumbersContext from "../context/NumbersContext";
 const maxNumbers = 20;
 let numberBlocker = 0;
 
-const selectedNumbers = []
+// const selectedNumbers = []
 const arrayofNumbers = [];
 
 for (let i=1; i<=maxNumbers; i++)
@@ -20,20 +20,24 @@ for (let i=1; i<=maxNumbers; i++)
     arrayofNumbers.push(numberButton)
 }
 
+
 // Numbers Component
 const Numbers = () => {
 
-    const {setNumbersSelected} = useContext(NumbersContext); // importing SET FUNCTION
-
+    const {numbersSelected, setNumbersSelected} = useContext(NumbersContext); // importing SET FUNCTION
+    
     const [allNumbers, setAllNumbers] = useState(arrayofNumbers);
 
-    const Action = (event) => {
+    const numberClicked = (event) => {
+        
+    console.log(numbersSelected)
 
         let idOfNumberSelected = parseInt(event.target.id)
 
-        const originalArray = [...allNumbers] // Original State reference
+        const OGNnumbersSelected = [...numbersSelected] // Original State reference
+        const OGNumberArray = [...allNumbers] // Original State reference
 
-        const foundbuttonObj = originalArray.find((element) => element.number === idOfNumberSelected) // return whole object// in my case, the whole object index
+        const foundbuttonObj = OGNumberArray.find((element) => element.number === idOfNumberSelected) // return whole object// in my case, the whole object index
 
             if(foundbuttonObj.isSelected === true) //Deselected Number
             {
@@ -41,22 +45,21 @@ const Numbers = () => {
 
                 foundbuttonObj.isSelected = false
 
-                setAllNumbers(originalArray)
+                setAllNumbers(OGNumberArray)
             }
             else if(numberBlocker <= 4)  //Selected Number
             {
-                selectedNumbers.push(idOfNumberSelected)          
-
-                // setNumbersSelected(selectedNumbers)   // ASSSIGNING ARRAY DATA TO SET FUNCTION
 
                 numberBlocker++
 
                 foundbuttonObj.isSelected = true
-                
-                setAllNumbers(originalArray)
-            }
 
-            setNumbersSelected(selectedNumbers) 
+                OGNnumbersSelected.push(idOfNumberSelected)          
+
+                setNumbersSelected(OGNnumbersSelected) 
+
+                setAllNumbers(OGNumberArray)
+            }
     }
 
     return (
@@ -67,7 +70,7 @@ const Numbers = () => {
                 {allNumbers.map((numberButton) => (
 
                     <div id={numberButton.number} key={numberButton.number} className={numberButton.isSelected === true ? "green numberDiv animate__animated animate__zoomIn" : "red numberDiv animate__animated animate__zoomIn"}
-                     onClick={Action} onDoubleClick={Action}>
+                     onClick={numberClicked}>
 
                         {numberButton.number}
 
@@ -89,4 +92,3 @@ const Numbers = () => {
 }
 
 export default Numbers;
-
