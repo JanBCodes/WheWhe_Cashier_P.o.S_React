@@ -73,6 +73,7 @@ main
   color: black;
 }
 
+
 .numbersContainer
 {
   display: grid;
@@ -99,6 +100,19 @@ main
   margin: 5px;
   padding: 15px;
   text-align: center;
+}
+
+.clearBet
+{
+  background-color: white;
+  border-radius: 50%;
+  border: solid green 2px;
+  color: black;
+  margin-top: 20px;
+  padding: 25px;
+  justify-self: center;
+  grid-column: 1/span 2;
+
 }
 
 .numberDiv
@@ -150,3 +164,4 @@ main
 {
   background-color: red;
 }
+

@@ -3,6 +3,7 @@ import React,{useState} from 'react'
 import {} from "../assets/css/App.css"
 
 import NumbersContext from '../context/NumbersContext.js'
+import BetContext from '../context/BetContext.js'
 
 import HomePage from '../pages/HomePage';
 import CashierPage from '../pages/CashierPage';
@@ -17,21 +18,29 @@ import {
 const App = () => {
 
   const [numbersSelected, setNumbersSelected] = useState([]);
+  const [betSelected, setbetSelected] = useState({value: 0});
+
 
   return (
     <Router>
       <Switch>
         <NumbersContext.Provider value={{numbersSelected, setNumbersSelected}}>
+        <BetContext.Provider value={{betSelected, setbetSelected}}>
+
         <Route exact path="/">
           <HomePage/>
         </Route>
+        
         <Route path="cash">
           <CashierPage/>
         </Route>
         <Route path="/receipt">
           <ReceiptPage/>
         </Route>
+
+        </BetContext.Provider>
         </NumbersContext.Provider>    
+
       </Switch>
     </Router>
   )

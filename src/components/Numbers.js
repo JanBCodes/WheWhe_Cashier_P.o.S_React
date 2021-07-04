@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import NumbersContext from "../context/NumbersContext";
+import BetContext from '../context/BetContext';
 
 // Global Variables
 const maxNumbers = 20;
-let numberBlocker = 0;
+let countOfNumbersSelected = 0;
 
-// const selectedNumbers = []
 const arrayofNumbers = [];
 
 for (let i=1; i<=maxNumbers; i++)
@@ -20,40 +20,62 @@ for (let i=1; i<=maxNumbers; i++)
     arrayofNumbers.push(numberButton)
 }
 
-
 // Numbers Component
 const Numbers = () => {
 
     const {numbersSelected, setNumbersSelected} = useContext(NumbersContext); // importing SET FUNCTION
-    
+    const {betSelected} = useContext(BetContext)
+
     const [allNumbers, setAllNumbers] = useState(arrayofNumbers);
 
-    const numberClicked = (event) => {
-        
-    // console.log(numbersSelected)
+    const placeBet = () => {
 
-        let idOfNumberSelected = parseInt(event.target.id)
+        if(countOfNumbersSelected === 5 && betSelected.value > 0)
+        {
+            alert(`Link to Cash Page`)
+        }
+
+    }
+
+
+
+    const clearNumbers = () => {
+
+        countOfNumbersSelected = 0; // Resets Counter to 0
+
+        setNumbersSelected([]) //Removes Marks Selected Numbers to an Empty Array
+
+        const OGNumberArray = [...allNumbers] 
+        OGNumberArray.map(object => object.isSelected = false)
+        setAllNumbers(OGNumberArray)
+    
+    }
+
+
+    const numberClicked = (event) => {
+
+        const idOfNumberSelected = parseInt(event.target.id)
 
         const OGNnumbersSelected = [...numbersSelected] // Original State reference
         const OGNumberArray = [...allNumbers] // Original State reference
 
         const foundbuttonObj = OGNumberArray.find((element) => element.number === idOfNumberSelected) // return whole object// in my case, the whole object index
 
+        const removeNumberfromSelectedMarksArray = ((idOfNumberSelected)=>{
+
+            const index = OGNnumbersSelected.indexOf(idOfNumberSelected);
+            if (index > -1) 
+            {
+                return index
+            }   
+        
+        });
+
             if(foundbuttonObj.isSelected === true) //Deselected Number
             {
-                numberBlocker--
+                countOfNumbersSelected--
 
                 foundbuttonObj.isSelected = false
-
-                function removeNumberfromSelectedMarksArray(idOfNumberSelected) {
-
-                    const index = OGNnumbersSelected.indexOf(idOfNumberSelected);
-                    if (index > -1) 
-                    {
-                        return index
-                    }   
-                
-                }
 
                 OGNnumbersSelected.splice(removeNumberfromSelectedMarksArray(idOfNumberSelected), 1)
 
@@ -61,10 +83,11 @@ const Numbers = () => {
 
                 setAllNumbers(OGNumberArray)
             }
-            else if(numberBlocker <= 4)  //Selected Number
+
+            else if(countOfNumbersSelected <= 4)  //Selected Number
             {
 
-                numberBlocker++
+                countOfNumbersSelected++
 
                 foundbuttonObj.isSelected = true
 
@@ -97,9 +120,9 @@ const Numbers = () => {
 
             <div className="cashAndClearButtonsContainer">
 
-                <button className="cashButton"> Cash </button>
+                <button className="cashButton" onClick={placeBet}> Place Bet </button>
 
-                <button className="clearButton"> Clear </button>
+                <button className="clearButton" onClick={clearNumbers}> Clear Numbers </button>
 
             </div> 
         </h2>
