@@ -30,7 +30,7 @@ const Numbers = () => {
 
     const numberClicked = (event) => {
         
-    console.log(numbersSelected)
+    // console.log(numbersSelected)
 
         let idOfNumberSelected = parseInt(event.target.id)
 
@@ -44,6 +44,20 @@ const Numbers = () => {
                 numberBlocker--
 
                 foundbuttonObj.isSelected = false
+
+                function removeNumberfromSelectedMarksArray(idOfNumberSelected) {
+
+                    const index = OGNnumbersSelected.indexOf(idOfNumberSelected);
+                    if (index > -1) 
+                    {
+                        return index
+                    }   
+                
+                }
+
+                OGNnumbersSelected.splice(removeNumberfromSelectedMarksArray(idOfNumberSelected), 1)
+
+                setNumbersSelected(OGNnumbersSelected) 
 
                 setAllNumbers(OGNumberArray)
             }
@@ -69,7 +83,8 @@ const Numbers = () => {
                 
                 {allNumbers.map((numberButton) => (
 
-                    <div id={numberButton.number} key={numberButton.number} className={numberButton.isSelected === true ? "green numberDiv animate__animated animate__zoomIn" : "red numberDiv animate__animated animate__zoomIn"}
+                    <div id={numberButton.number} key={numberButton.number} 
+                    className={numberButton.isSelected === true ? "green numberDiv animate__animated animate__zoomIn" : "red numberDiv animate__animated animate__zoomIn"}
                      onClick={numberClicked}>
 
                         {numberButton.number}

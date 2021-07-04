@@ -3,7 +3,7 @@ import NumbersContext from "../context/NumbersContext";
 
 const MarksSelected = () => {
 
-    const {numbersSelected} = useContext(NumbersContext); // importing SET FUNCTION
+    const {numbersSelected} = useContext(NumbersContext); // importing State of Selected Numbers via Context
 
     return (
         <div className="marksContainer">
