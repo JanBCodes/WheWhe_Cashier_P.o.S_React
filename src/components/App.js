@@ -4,40 +4,50 @@ import {} from "../assets/css/App.css"
 
 import NumbersContext from '../context/NumbersContext.js'
 import BetContext from '../context/BetContext.js'
+import ModalContext from '../context/ModalContext';
+import NumpadContext from '../context/NumpadContext';
+import CashRecContext from '../context/CashRecContext';
+
 
 import HomePage from '../pages/HomePage';
-import CashierPage from '../pages/CashierPage';
 import ReceiptPage from '../pages/ReceiptPage';
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from "react-router-dom";
 
 const App = () => {
 
   const [numbersSelected, setNumbersSelected] = useState([]);
   const [betSelected, setbetSelected] = useState({value: 0});
+  const [modalStatus, setModalStatus] = useState({status: false});
+  const [numpad, setNumPad] = useState({value: 0});
+  const [cashRec, setCashReceived] = useState({value: 0});
 
 
   return (
     <Router>
       <Switch>
+
         <NumbersContext.Provider value={{numbersSelected, setNumbersSelected}}>
         <BetContext.Provider value={{betSelected, setbetSelected}}>
-
+        <ModalContext.Provider value={{modalStatus, setModalStatus}}>
+        <NumpadContext.Provider value={{numpad, setNumPad}}>
+        <CashRecContext.Provider value={{cashRec, setCashReceived}}>
+          
         <Route exact path="/">
           <HomePage/>
         </Route>
-        
-        <Route path="cash">
-          <CashierPage/>
-        </Route>
-        <Route path="/receipt">
+
+        <Route exact path="/receipt">
           <ReceiptPage/>
         </Route>
 
+        </CashRecContext.Provider>
+        </NumpadContext.Provider>
+        </ModalContext.Provider>
         </BetContext.Provider>
         </NumbersContext.Provider>    
 

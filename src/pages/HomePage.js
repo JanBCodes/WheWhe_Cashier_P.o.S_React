@@ -5,6 +5,7 @@ import BetSelected from "../components/BetSelected"
 import Numbers from "../components/Numbers"
 import MarksSelected from "../components/MarksSelected"
 import Footer from "../components/Footer";
+import Modal from "../components/Modal";
 
 
 const HomePage = () => {
@@ -17,6 +18,8 @@ const HomePage = () => {
                     <MarksSelected/>
                 </main>
             <Footer/>
+            <Modal/>
+
       </>
     )
 }

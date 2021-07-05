@@ -11,14 +11,14 @@ const MarksSelected = () => {
         <div className="marksContainer">
             <div className="marksChosenHeader">
                 Numbers Selected:
-            </div>
 
-            {numbersSelected.map((numberSelected) => (
+                {numbersSelected.map((numberSelected) => (
                 <div key={numberSelected} className="marksChosen"> {numberSelected} </div>
             ))}
+            </div>
 
             <div className="totalBet">
-                Total Bet ${betSelected.value}
+                Total Bet <br/>${betSelected.value}.00
             </div>
         </div>
     )

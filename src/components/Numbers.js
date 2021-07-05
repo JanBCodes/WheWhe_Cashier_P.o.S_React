@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import NumbersContext from "../context/NumbersContext";
 import BetContext from '../context/BetContext';
+import ModalContext from "../context/ModalContext";
 
-// Global Variables
+// Global 
 const maxNumbers = 20;
 let countOfNumbersSelected = 0;
 
@@ -25,19 +26,20 @@ const Numbers = () => {
 
     const {numbersSelected, setNumbersSelected} = useContext(NumbersContext); // importing SET FUNCTION
     const {betSelected} = useContext(BetContext)
-
+    const {modalStatus,setModalStatus} = useContext(ModalContext)
+    
     const [allNumbers, setAllNumbers] = useState(arrayofNumbers);
 
     const placeBet = () => {
 
         if(countOfNumbersSelected === 5 && betSelected.value > 0)
         {
-            alert(`Link to Cash Page`)
+            const currentStatus = {...modalStatus}
+            currentStatus.status = true
+            setModalStatus(currentStatus)
         }
 
     }
-
-
 
     const clearNumbers = () => {
 
@@ -51,7 +53,6 @@ const Numbers = () => {
     
     }
 
-
     const numberClicked = (event) => {
 
         const idOfNumberSelected = parseInt(event.target.id)
@@ -63,13 +64,14 @@ const Numbers = () => {
 
         const removeNumberfromSelectedMarksArray = ((idOfNumberSelected)=>{
 
-            const index = OGNnumbersSelected.indexOf(idOfNumberSelected);
-            if (index > -1) 
-            {
-                return index
-            }   
+            const index = OGNnumbersSelected.indexOf(idOfNumberSelected)
+                
+                if (index > -1) 
+                {
+                    return index
+                }   
         
-        });
+            });
 
             if(foundbuttonObj.isSelected === true) //Deselected Number
             {
@@ -83,7 +85,6 @@ const Numbers = () => {
 
                 setAllNumbers(OGNumberArray)
             }
-
             else if(countOfNumbersSelected <= 4)  //Selected Number
             {
 
@@ -118,13 +119,14 @@ const Numbers = () => {
 
             </div>
 
-            <div className="cashAndClearButtonsContainer">
+            <div className="cashAndClearNumberContainer">
 
                 <button className="cashButton" onClick={placeBet}> Place Bet </button>
 
-                <button className="clearButton" onClick={clearNumbers}> Clear Numbers </button>
+                <button className="clearNumbers" onClick={clearNumbers}> Clear Numbers </button>
 
             </div> 
+
         </h2>
      )
 }
