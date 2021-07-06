@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return (
         <div className="footer">
             <div className="footerNotes"> 
                 Developed by: JanBCodes          
-                    {/* <a href="https://github.com/JanBCodes" target="_blank"> */}
+                    <Link to={`https://github.com/JanBCodes`} target="_blank">
                         <i className="fab fa-github"> </i>
-                    {/* </a> */}
+                    </Link>
             </div>
         </div>
     )

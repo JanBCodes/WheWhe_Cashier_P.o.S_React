@@ -1,4 +1,4 @@
-import React,{useContext } from 'react'
+import {useContext } from 'react'
 import NumbersContext from "../context/NumbersContext";
 import BetContext from '../context/BetContext';
 
@@ -10,7 +10,7 @@ const MarksSelected = () => {
     return (
         <div className="marksContainer">
             <div className="marksChosenHeader">
-                Numbers Selected:
+                Marks Selected:
 
                 {numbersSelected.map((numberSelected) => (
                 <div key={numberSelected} className="marksChosen"> {numberSelected} </div>

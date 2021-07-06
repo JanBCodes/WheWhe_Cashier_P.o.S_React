@@ -1,10 +1,8 @@
-import React from 'react'
+import Receipt from "../components/Receipt"
 
 const ReceiptPage = () => {
     return (
-        <div>
-            ReceiptPage
-        </div>
+            <Receipt/>
     )
 }
 

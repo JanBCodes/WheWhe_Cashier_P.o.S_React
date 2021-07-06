@@ -8,7 +8,6 @@ import ModalContext from '../context/ModalContext';
 import NumpadContext from '../context/NumpadContext';
 import CashRecContext from '../context/CashRecContext';
 
-
 import HomePage from '../pages/HomePage';
 import ReceiptPage from '../pages/ReceiptPage';
 
@@ -25,7 +24,6 @@ const App = () => {
   const [modalStatus, setModalStatus] = useState({status: false});
   const [numpad, setNumPad] = useState({value: 0});
   const [cashRec, setCashReceived] = useState({value: 0});
-
 
   return (
     <Router>

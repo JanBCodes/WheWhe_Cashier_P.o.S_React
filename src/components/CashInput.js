@@ -2,12 +2,13 @@ import { useContext } from "react";
 import BetContext from '../context/BetContext';
 import CashRecContext from "../context/CashRecContext";
 import ModalContext from "../context/ModalContext";
+import { Link } from "react-router-dom";
 
 
 const CashInput = () => {
 
     const {betSelected} = useContext(BetContext)
-    const {cashRec} = useContext(CashRecContext)
+    const {cashRec,setCashReceived} = useContext(CashRecContext)
     const {modalStatus,setModalStatus} = useContext(ModalContext)
     
     let cashReceived = cashRec.value
@@ -28,6 +29,7 @@ const CashInput = () => {
 
         const currentStatus = {...modalStatus}
         currentStatus.status = false
+        setCashReceived({value: 0})
         setModalStatus(currentStatus)
     }
 
@@ -51,7 +53,7 @@ const CashInput = () => {
                 </div>
             </div>
             <div className="confirmButtons">
-                <div className="confirm"> Cash </div>
+                <div className="confirm"> <Link to={`/receipt`}>Cash</Link> </div>
                 <div className="closeButton" onClick={quitTransaction}> Quit </div>
             </div>
         </div>

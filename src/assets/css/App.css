@@ -63,7 +63,6 @@ main
   border: solid white 5px;
   background-color: green;
   text-shadow: 2px 2px #300808;
-
 }
 
 .clearNumbers
@@ -275,6 +274,7 @@ main
   margin: 20px 30px ;
   padding: 25px 45px;
   justify-self: center;
+  text-decoration: none;
 }
 
 .confirm:hover, .closeButton:hover
@@ -298,3 +298,57 @@ main
 /* ************* *
   Receipt Page
 * ************* */
+
+.receiptPage
+{
+  height: 100vh;
+  background-color: transparent;
+  font-size: 2rem;
+}
+
+/* .receiptPage > .header
+{
+  padding-top: 0px;
+} */
+
+.receiptContainer
+{
+  border: blanchedalmond 2px solid;
+  max-width: 440px;
+  margin: auto;
+}
+
+.receiptContainer p 
+{
+  color: red;
+  text-align: center;
+
+}
+
+.receiptPage > .closeButton
+{
+  margin: 20px 30px ;
+  padding: 5px 15px;
+  position: fixed;
+  right: 200px;
+  top: 0;
+}
+
+.receiptContainer > .footer
+{
+  position: fixed;
+  bottom: 0;
+}
+
+.receiptContainer .cashInputContainerHeader, .receiptContainer .confirmButtons, .receiptContainer .totalBet
+{
+  display: none;
+}
+
+.receiptContainer .marksContainer
+{
+  grid-template-rows: 1fr;
+
+}
+
+

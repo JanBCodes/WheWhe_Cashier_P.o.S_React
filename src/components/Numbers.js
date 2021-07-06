@@ -24,7 +24,7 @@ for (let i=1; i<=maxNumbers; i++)
 // Numbers Component
 const Numbers = () => {
 
-    const {numbersSelected, setNumbersSelected} = useContext(NumbersContext); // importing SET FUNCTION
+    const {numbersSelected, setNumbersSelected} = useContext(NumbersContext); 
     const {betSelected} = useContext(BetContext)
     const {modalStatus,setModalStatus} = useContext(ModalContext)
     
