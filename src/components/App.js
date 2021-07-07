@@ -1,12 +1,17 @@
 import React,{useState} from 'react'
 
 import {} from "../assets/css/App.css"
+import {} from "../assets/css/DesktopMQ.css"
+import {} from "../assets/css/TabletMQ.css"
+import {} from  "../assets/css/PhoneMQ.css"
 
 import NumbersContext from '../context/NumbersContext.js'
 import BetContext from '../context/BetContext.js'
 import ModalContext from '../context/ModalContext';
 import NumpadContext from '../context/NumpadContext';
 import CashRecContext from '../context/CashRecContext';
+import NumbersArrayContext from '../context/NumbersArrayContext'
+import CounterContext from '../context/CounterContext';
 
 import HomePage from '../pages/HomePage';
 import ReceiptPage from '../pages/ReceiptPage';
@@ -19,6 +24,8 @@ import {
 
 const App = () => {
 
+  const [counter,setCounter] = useState({count: 0});
+  const [allNumbers, setAllNumbers] = useState([]);
   const [numbersSelected, setNumbersSelected] = useState([]);
   const [betSelected, setbetSelected] = useState({value: 0});
   const [modalStatus, setModalStatus] = useState({status: false});
@@ -29,6 +36,8 @@ const App = () => {
     <Router>
       <Switch>
 
+        <CounterContext.Provider value={{counter,setCounter}}>
+        <NumbersArrayContext.Provider value={{allNumbers,setAllNumbers}}>
         <NumbersContext.Provider value={{numbersSelected, setNumbersSelected}}>
         <BetContext.Provider value={{betSelected, setbetSelected}}>
         <ModalContext.Provider value={{modalStatus, setModalStatus}}>
@@ -48,6 +57,8 @@ const App = () => {
         </ModalContext.Provider>
         </BetContext.Provider>
         </NumbersContext.Provider>    
+        </NumbersArrayContext.Provider>
+        </CounterContext.Provider>
 
       </Switch>
     </Router>

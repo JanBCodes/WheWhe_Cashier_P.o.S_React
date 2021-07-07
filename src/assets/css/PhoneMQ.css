@@ -1,0 +1,163 @@
+@media (min-width: 300.00px) and (max-width: 575.98px) {
+  
+    body
+    {
+        height: 100%;
+        font-size: 1rem;
+        max-width: 320px;
+        margin: auto auto;
+    }
+
+    .header
+    {
+        font-size: 1rem;
+    }
+
+    .cashAndClearNumberContainer
+    {
+        grid-template-rows: 1fr;
+        grid-template-columns: none;
+    }
+
+    .numbersContainer
+    {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        text-align: center;
+    }
+
+    h2
+    {
+        margin: 0px 0px;
+        font-size: 1rem;
+        max-width: 300px;
+    }
+
+    main
+    {
+        grid-template-columns: none;
+        grid-template-rows: .5fr 1fr .5fr;
+        height: 50%;
+    }
+
+    .betContainer
+    {
+        grid-row-start: 3;
+        margin: 0px 10px;
+        max-width: 300px;
+    }
+
+    .betDiv
+    {
+        padding: 15px;
+    }
+
+    .bet
+    {
+        padding: 20px;
+        margin: 5px;
+        font-size: 1.5rem;
+    }
+
+    .marksContainer
+    {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        font-size: 2rem;
+    }
+
+    .marksChosen
+    {
+        text-align: center;
+        font: 1.8rem;
+    }
+
+    .totalBet
+    {
+        margin: 0 0;
+        display: grid;
+        grid-template-rows: 1fr;
+        color: red;
+        text-align: center;
+    }
+
+    .clearBet
+    {
+        padding: 15px;
+        margin: 20px auto;
+        width: 60%;
+    }
+
+    .cashButton
+    {
+        padding: 25px;
+        margin: 25px 5px 0 5px ;
+    }
+
+    .clearNumbers
+    {
+        padding: 25px;
+        margin: 25px 5px 0 5px ;
+        font-size: 1.7rem;
+    }
+
+    
+  /* ************* *
+  Modal
+* ************* */
+  
+.container
+{
+  justify-content: center;
+  margin: auto auto;  
+  width: 90vw;
+  height: 100%;
+  font-size: 25px;
+
+}
+
+.modalHeader
+{
+  padding: 10px 10px;
+}
+
+.modalBody
+{
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: none;
+  width: 90vw;
+  margin: 0 0;
+}
+
+.modalBody > .cashInputContainerHeader
+{
+  margin: 0 2px;
+}
+
+.numpadContainer > .numberDiv
+{
+  padding: 25px 30px;
+  text-shadow: 1px 1px #300808;
+}
+
+.confirmButtons
+{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: none;
+}
+
+.confirm, .closeButton
+{
+  margin: 10px 15px ;
+  padding: 15px 35px;
+}
+
+/* ************* *
+  Receipt Page
+* ************* */
+
+
+
+
+
+};

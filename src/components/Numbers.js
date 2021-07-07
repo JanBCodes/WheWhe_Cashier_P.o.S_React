@@ -1,35 +1,39 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import NumbersContext from "../context/NumbersContext";
 import BetContext from '../context/BetContext';
 import ModalContext from "../context/ModalContext";
+import NumbersArrayContext from "../context/NumbersArrayContext";
+import CounterContext from '../context/CounterContext';
+
 
 // Global 
-const maxNumbers = 20;
-let countOfNumbersSelected = 0;
+    const maxNumbers = 20;
+    let countOfNumbersSelected = 0;
 
-const arrayofNumbers = [];
+    const arrayofNumbers = [];
 
-for (let i=1; i<=maxNumbers; i++)
-{
-    const numberButton = 
+    for (let i=1; i<=maxNumbers; i++)
     {
-        number: i,
-        key: i,
-        isSelected: false
+        const numberButton = 
+        {
+            number: i,
+            key: i,
+            isSelected: false
+        }
+
+        arrayofNumbers.push(numberButton)
     }
 
-    arrayofNumbers.push(numberButton)
-}
-
-// Numbers Component
 const Numbers = () => {
 
     const {numbersSelected, setNumbersSelected} = useContext(NumbersContext); 
     const {betSelected} = useContext(BetContext)
+    const {setCounter} = useContext(CounterContext)
     const {modalStatus,setModalStatus} = useContext(ModalContext)
-    
-    const [allNumbers, setAllNumbers] = useState(arrayofNumbers);
+    const {allNumbers,setAllNumbers} = useContext(NumbersArrayContext)
 
+    setAllNumbers(arrayofNumbers)
+    
     const placeBet = () => {
 
         if(countOfNumbersSelected === 5 && betSelected.value > 0)
@@ -44,6 +48,8 @@ const Numbers = () => {
     const clearNumbers = () => {
 
         countOfNumbersSelected = 0; // Resets Counter to 0
+
+        setCounter({count:countOfNumbersSelected})
 
         setNumbersSelected([]) //Removes Marks Selected Numbers to an Empty Array
 
@@ -71,33 +77,37 @@ const Numbers = () => {
                     return index
                 }   
         
-            });
+        });
 
-            if(foundbuttonObj.isSelected === true) //Deselected Number
-            {
-                countOfNumbersSelected--
+        if(foundbuttonObj.isSelected === true) //Deselected Number
+        {
+            countOfNumbersSelected--
 
-                foundbuttonObj.isSelected = false
+            foundbuttonObj.isSelected = false
 
-                OGNnumbersSelected.splice(removeNumberfromSelectedMarksArray(idOfNumberSelected), 1)
+            OGNnumbersSelected.splice(removeNumberfromSelectedMarksArray(idOfNumberSelected), 1)
 
-                setNumbersSelected(OGNnumbersSelected) 
+            setCounter({count:countOfNumbersSelected})
+            
+            setNumbersSelected(OGNnumbersSelected) 
 
-                setAllNumbers(OGNumberArray)
-            }
-            else if(countOfNumbersSelected <= 4)  //Selected Number
-            {
+            setAllNumbers(OGNumberArray)
+        }
+        else if(countOfNumbersSelected <= 4)  //Selected Number
+        {
 
-                countOfNumbersSelected++
+            countOfNumbersSelected++
 
-                foundbuttonObj.isSelected = true
+            foundbuttonObj.isSelected = true
 
-                OGNnumbersSelected.push(idOfNumberSelected)          
+            OGNnumbersSelected.push(idOfNumberSelected) 
+            
+            setCounter({count:countOfNumbersSelected})
 
-                setNumbersSelected(OGNnumbersSelected) 
+            setNumbersSelected(OGNnumbersSelected) 
 
-                setAllNumbers(OGNumberArray)
-            }
+            setAllNumbers(OGNumberArray)
+        }
     }
 
     return (

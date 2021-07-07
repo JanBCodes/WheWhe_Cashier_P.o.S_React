@@ -1,0 +1,135 @@
+
+/* // Medium devices (tablets, less than 992px) */
+@media (min-width: 575.99px) and (max-width: 971.98px) {
+
+  body
+  {
+  height: 100%;
+  }
+
+  h2
+  {
+  margin: 0px 0px;
+  font-size: 1rem;
+  }
+
+  main
+  {
+  grid-template-columns: none;
+  grid-template-rows: .5fr 1fr .5fr;
+  height: 50%;
+  }
+
+  .betContainer
+  {
+    grid-row-start: 3;
+    margin: 0px 10px
+  }
+
+  .betDiv
+  {
+    padding: 15px;
+  }
+
+  .bet
+  {
+    padding: 50px;
+    margin: 15px;
+    font-size: 2rem;
+  }
+
+  .marksContainer
+  {
+    grid-template-columns: 1fr;
+  }
+
+  .marksChosen
+  {
+    text-align: center;
+    font: 1.8rem;
+  }
+
+  .totalBet
+  {
+    margin-bottom: 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    color: red;
+  }
+
+  .clearBet
+  {
+    padding: 15px;
+    margin: 20px auto;
+    width: 60%;
+  }
+
+  .cashButton
+  {
+    padding: 25px;
+    margin: 25px 5px 0 5px ;
+  }
+
+  .clearNumbers
+  {
+    padding: 25px;
+    margin: 25px 5px 0 5px ;
+    font-size: 1.7rem;
+  }
+
+  .marksContainer
+  {
+    grid-template-rows: 2fr .5fr;
+  }
+  
+  /* ************* *
+  Modal
+* ************* */
+  
+.container
+{
+  justify-content: center;
+  margin: auto auto;  
+  width: 90vw;
+}
+
+.modalHeader
+{
+  padding: 10px 10px;
+}
+
+.modalBody
+{
+  grid-template-columns: 1fr 1fr;
+  width: 90vw;
+  margin: 0 0;
+}
+
+.modalBody > .cashInputContainerHeader
+{
+  margin: 0 auto;
+}
+
+.numpadContainer > .numberDiv
+{
+  padding: 25px 30px;
+  text-shadow: 1px 1px #300808;
+}
+
+.confirmButtons
+{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: none;
+}
+
+/* ************* *
+  Receipt Page
+* ************* */
+
+
+
+
+
+  
+};
