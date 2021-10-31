@@ -1,5 +1,7 @@
 import {useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { useHistory } from "react-router";
+
 
 import Header from "./Header"
 import MarksSelected from "./MarksSelected"
@@ -14,7 +16,12 @@ import NumpadContext from '../context/NumpadContext';
 import CashRecContext from '../context/CashRecContext';
 import CounterContext from '../context/CounterContext';
 
+
+
 const Receipt = () => {
+
+    const reroute = useHistory()
+
 
     const {allNumbers,setAllNumbers} = useContext(NumbersArrayContext); 
     const {setNumbersSelected} = useContext(NumbersContext); 
@@ -38,6 +45,8 @@ const Receipt = () => {
         setCashReceived({value: 0})
         setNumPad({value: 0})
 
+        reroute.push("/")
+
     }
 
     return (
@@ -49,7 +58,7 @@ const Receipt = () => {
                     <CashInput/>
                     <p> Good Luck </p>
                 </div>
-                <button className="closeButton" onClick={reSet}> <Link to={`/`}> X </Link> </button>
+                <button className="closeButton" onClick={reSet}> Exit </button>
             <Footer/>
         </div>
     )

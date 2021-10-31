@@ -2,10 +2,13 @@ import { useContext } from "react";
 import BetContext from '../context/BetContext';
 import CashRecContext from "../context/CashRecContext";
 import ModalContext from "../context/ModalContext";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 
 const CashInput = () => {
+
+    const reroute = useHistory()
 
     const {betSelected} = useContext(BetContext)
     const {cashRec,setCashReceived} = useContext(CashRecContext)
@@ -23,6 +26,21 @@ const CashInput = () => {
     else
     {
         changeStatus = "Cx to Pay"
+    }
+
+    const checkIfPaid = () =>
+    {
+
+        if(changeDue < 0)
+        {
+            alert("Please pay for you Bet.")
+        }
+        else
+        {
+            reroute.push("/receipt")
+        }
+    
+
     }
 
     const quitTransaction = () => {
@@ -53,11 +71,11 @@ const CashInput = () => {
                 </div>
             </div>
             <div className="confirmButtons">
-                <div className="confirm"> <Link to={`/receipt`}>Cash</Link> </div>
-                <div className="closeButton" onClick={quitTransaction}> Quit </div>
+                <div className="confirm" onClick={checkIfPaid}>Cash</div>
+                <div className="closeButton" onClick={quitTransaction}> Back </div>
             </div>
         </div>
     )
 }
 
-export default CashInput
+export default CashInput 

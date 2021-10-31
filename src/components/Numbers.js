@@ -35,12 +35,16 @@ const Numbers = () => {
     setAllNumbers(arrayofNumbers)
     
     const placeBet = () => {
-
+        
         if(countOfNumbersSelected === 5 && betSelected.value > 0)
         {
             const currentStatus = {...modalStatus}
             currentStatus.status = true
             setModalStatus(currentStatus)
+        }
+        else
+        {
+            alert("Please choose 5 numbers & place a BET greater than $0.00")
         }
 
     }
@@ -111,14 +115,16 @@ const Numbers = () => {
     }
 
     return (
-        <h2> Chose 5 Numbers:
+        <h2> Choose 5 Numbers:
 
             <div className="numbersContainer ">    
                 
                 {allNumbers.map((numberButton) => (
 
                     <div id={numberButton.number} key={numberButton.number} 
-                    className={numberButton.isSelected === true ? "green numberDiv animate__animated animate__zoomIn" : "red numberDiv animate__animated animate__zoomIn"}
+                    className={numberButton.isSelected === true 
+                        ? "unclicked numberDiv animate__animated animate__zoomIn" 
+                        : "clicked numberDiv animate__animated animate__zoomIn"}
                      onClick={numberClicked}>
 
                         {numberButton.number}
